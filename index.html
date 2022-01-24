@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   
+    <title>Nemorphism Calci</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+<center>
+<!-- Scientific Calculator -->
+    <div class="container">
+        <div class="head">Scientific Calculator</div><br><br>
+        <div class="display">
+            <input id="screen" type="text" placeholder="0" required>
+        </div>
+
+        <div class="btns">
+            <div class="row">
+                <button id="ce" onclick="backspc()">CE</button>
+                <button onclick="fact()">x!</button>
+                <button class="btn">(</button>
+                <button class="btn">)</button>
+                <button class="btn">%</button>
+                <button id="ac" onclick="screen.value=''">AC</button>
+            </div>
+
+            <div class="row">
+                <button onclick="sin()">sin</button>
+                <button onclick="cos()">cos</button>
+                <button onclick="tan()">tan</button>
+                <button onclick="e()">e</button>
+                <button onclick="log()">log</button>
+                <button onclick="sqrt()">√</button>
+            </div>
+
+            <div class="row">
+                <button onclick="pow()">x <span style="position: relative; bottom: .4em; right: .1em;">y</span></button>
+                <button onclick="pi()">π</button>
+                <button class="btn">+</button>
+                <button class="btn">-</button>
+                <button class="btn">×</button>
+                <button class="btn">÷</button>
+            </div>
+
+            <div class="row">
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+            </div>
+
+            <div class="row">
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn">0</button>
+                <button class="btn">.</button>
+                <button id="eval" onclick="screen.value=eval(screen.value)">=</button>
+            </div>
+</div>
+<br><br><br><br>
+          
+
+<!-- Weight Converter -->
+<div class="head">Weight Converter</div>
+ <form class="formA">
+     <table>
+         <tr>
+             <td><label>Weight in KG:</label></td>
+             <td><input type="number" name="kg" id="in_kg" placeholder="Enter numeric data"></td>
+         </tr>
+
+         <tr>
+            <td><label>Weight in Grams:</label></td>
+            <td><input type="number" name="in_g" id="grams"></td>
+        </tr>
+
+        <tr>
+            <td><label>Weight in Pounds:</label></td>
+            <td><input type="number" name="in_p" id="pounds"></td>
+        </tr>
+
+        <tr>
+            <td><label>Weight in MilliGrams:</label></td>
+            <td><input type="number" name="in_m" id="mg"></td>
+        </tr>
+
+        <tr>
+            <td><label>Weight in Tons:</label></td>
+            <td><input type="number" name="in_t" id="Us_ton"></td>
+        </tr>
+
+        <tr>
+            <td><label>Weight in Ounces:</label></td>
+            <td><input type="number" name="in_o" id="ounce"></td>
+        </tr>
+     </table>
+     <div id="grams"></div><br>
+     <button id="convert" onclick="check()">Convert</button> 
+     <button id="reset" type="reset">Reset</button>
+  </form>
+  <br><br><br><br>
+
+
+<!-- Temperature Calculator -->
+  <div class="head">Temperature Converter</div>
+<form class="formA" id="tempCalc" onsubmit="calculateTemp(); return false">
+
+    <input type="number" name="temp" id="temp" placeholder="Enter the numeric data">
+
+    <select name="temp_diff" id="temp_diff">
+        <option value="fah">°Fahrenheit</option>
+        <option value="cel">°Celsius</option>
+    </select><br><br>
+
+   <!-- <input type="submit" name="temp"><br>-->
+    <button id="convert" name="temp">Submit</button>
+    <button id="reset" type="reset">Reset</button> <br><br>
+    <span id="resultContainer"></span>
+ <br>
+</form>
+<br><br><br><br>
+
+
+<!-- Length Converter -->
+<div class="head">Length Converter</div>
+
+<form class="formA">
+  <input type="number" placeholder="Enter numeric data" id="input">
+    <span>=</span>
+  <input type="text" placeholder="Result" id="result">
+<br><br>
+
+ <select id="inputType">
+    <option value="meter">Meter</option>
+    <option value="kilometer">Kilometer</option>
+    <option value="centimeter">Centimeter</option>
+ </select>
+
+ <select id="resultType">
+    <option value="meter">Meter</option>
+    <option value="kilometer">Kilometer</option>
+    <option value="centimeter">Centimeter</option>
+ </select>
+ <br><br>
+
+ <button id="reset" type="reset">Reset</button> <br><br>
+</form>
+<br><br><br><br>
+
+
+<!-- Currency Converter -->
+<div class="head">Currency Converter</div><br>
+
+<div class="wrapper">
+    <form class="formB">
+      <div class="amount">
+        <p>Enter Amount</p>
+        <input class="inputA" type="text" value="1">
+      </div>
+      <div class="drop-list">
+        <div class="from">
+          <p>From</p>
+          <div class="select-box">
+            <img src="https://flagcdn.com/48x36/us.png" alt="flag">
+            <select> <!-- Options tag are inserted from JavaScript --> </select>
+          </div>
+        </div>
+        <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+        <div class="to">
+          <p>To</p>
+          <div class="select-box">
+            <img src="https://flagcdn.com/48x36/in.png" alt="flag">
+            <select> <!-- Options tag are inserted from JavaScript --> </select>
+          </div>
+        </div>
+      </div>
+      <div class="exchange-rate">Getting exchange rate...</div>
+      <button>Get Exchange Rate</button>
+    </form>
+  </div>
+<br><br><br><br>
+
+  <!-- Crypto Exchange -->
+<div class="head">Crypto Exchange</div><br>
+<button id="ch"><a href="crypto.html">Click Here</a></button>
+
+  <br><br>
+    <p>Copyright © 2022 | MIT License | Nemophism Calci | All Rights Reserved | Developed and Managed by:- Asthreeta Schaft</p>
+  <br><br>
+</div>
+
+
+
+<!-- Script for calculator -->
+<script>
+    var screen=document.querySelector('#screen');
+    var btn=document.querySelectorAll('.btn');
+
+    for(item of btn){
+        item.addEventListener('click', (e)=>{
+            btntext=e.target.innerText;
+            if(btntext=='×'){
+                btntext='*';
+            }
+
+            if(btntext=='÷'){
+                btntext='/';
+            }
+            screen.value+=btntext;
+        });
+    }
+
+    function sin(){
+        screen.value=Math.sin(screen.value);
+    }
+    
+    function cos(){
+        screen.value=Math.cos(screen.value);
+    }
+
+    function tan(){
+        screen.value=Math.tan(screen.value);
+    }
+    
+    function pow(){
+        screen.value=Math.pow(screen.value,2);
+    }
+    
+    function sqrt(){
+        screen.value=Math.sqrt(screen.value,2);
+    }
+    
+    function log(){
+        screen.value=Math.log(screen.value);
+    }
+    
+    function pi(){
+        screen.value= 3.14159265359;
+    }
+    
+    function e(){
+        screen.value= 2.71828182846;
+    }
+    
+    function fact(){
+        var i, num, f;
+        f=1
+        num=screen.value;
+        for(i=1; i<=num; i++){
+            f=f*i;
+        }
+
+        i=i-1;
+
+        screen.value=f;
+    }
+
+    function backspc(){
+        screen.value=screen.value.substr(0,screen.value.length-1);
+    }
+</script>
+
+
+<!-- Script for weight converter -->
+<script>
+    function check(){
+        var x;
+        x=document.getElementById('in_kg').value;
+        if(isNaN(x) || x<=0){
+            window.alert("Enter numeric data greater then zero");
+        }
+        else{
+            var num;
+
+            num = x*1000;
+            document.getElementById('grams').value = num;
+
+            num = x*2.2046;
+            document.getElementById('pounds').value = num;
+
+            num = x*1000000;
+            document.getElementById('mg').value = num;
+
+            num = x*0.0011023;
+            document.getElementById('Us_ton').value = num;
+
+            num = x*2.2046;
+            document.getElementById('ounce').value = num;
+
+        }
+    }
+</script>
+
+
+<!-- Script for Temperature Converter -->
+<script>
+    const calculateTemp = () =>{
+
+        const numberTemp = document.getElementById('temp').value;
+        // console.log(numberTemp);
+
+        const tempSelected = document.getElementById('temp_diff');
+        const valueTemp = temp_diff.options[tempSelected.selectedIndex].value;
+        // console.log(valueTemp);
+
+        const celToFah = (cel) =>{
+            let fahrenheit = Math.round((cel * 9/5) + 32);
+            return fahrenheit;
+        }
+
+        const fehToCel = (fehr) =>{
+            let celsius = Math.round((fehr - 52) * 5/9);
+            return celsius;
+        }
+
+        let result;
+        if(valueTemp == 'cel'){
+            result = celToFah(numberTemp);
+            document.getElementById('resultContainer').innerHTML=`= ${result} °Fahrenheit`;
+        }
+        else{
+            result = fehToCel(numberTemp);
+            document.getElementById('resultContainer').innerHTML=`= ${result} °Celsius`;
+        }
+    }
+</script>
+
+
+<!-- Script for Length Converter -->
+<script>
+    var input = document.getElementById('input');
+    var result = document.getElementById('result');
+    var inputType = document.getElementById('inputType');
+    var resultType = document.getElementById('resultType');
+    var inputTypeValue,resultTypeValue;
+
+    input.addEventListener("keyup",myResult);
+    inputType.addEventListener("change",myResult);
+    resultType.addEventListener("change",myResult);
+
+    inputTypeValue = inputType.value;
+    resultTypeValue = resultType.value;
+
+    function myResult(){
+       // result.value = input.value;
+       inputTypeValue = inputType.value;
+       resultTypeValue = resultType.value;
+
+       //Meter
+       if(inputTypeValue === "meter" && resultTypeValue === "kilometer"){
+           result.value = Number(input.value) * 0.001;
+       }
+       else if(inputTypeValue === "meter" && resultTypeValue === "centimeter"){
+           result.value = Number(input.value) * 100;
+       }
+       else if(inputTypeValue === "meter" && resultTypeValue === "meter"){
+           result.value = input.value;
+       }
+
+
+       // Kilometer
+       if(inputTypeValue === "kilometer" && resultTypeValue === "meter"){
+           result.value = Number(input.value) * 1000;
+       }
+       else if(inputTypeValue === "kilometer" && resultTypeValue === "centimeter"){
+           result.value = Number(input.value) * 100000;
+       }
+       else if(inputTypeValue === "kilometer" && resultTypeValue === "kilometer"){
+           result.value = input.value;
+       }
+
+
+       //Centimeter
+       if(inputTypeValue === "centimeter" && resultTypeValue === "meter"){
+           result.value = Number(input.value) * 0.01;
+       }
+       else if(inputTypeValue === "centimeter" && resultTypeValue === "kilometer"){
+           result.value = Number(input.value) * 0.00001;
+       }
+       else if(inputTypeValue === "centimeter" && resultTypeValue === "centimeter"){
+           result.value = input.value;
+       }
+    }
+
+</script>
+
+
+<!-- Script for Currency Converter -->
+  <!-- Country code -->
+<script>
+   let country_list = {
+    "AED" : "AE",
+    "AFN" : "AF",
+    "XCD" : "AG",
+    "ALL" : "AL",
+    "AMD" : "AM",
+    "ANG" : "AN",
+    "AOA" : "AO",
+    "AQD" : "AQ",
+    "ARS" : "AR",
+    "AUD" : "AU",
+    "AZN" : "AZ",
+    "BAM" : "BA",
+    "BBD" : "BB",
+    "BDT" : "BD",
+    "XOF" : "BE",
+    "BGN" : "BG",
+    "BHD" : "BH",
+    "BIF" : "BI",
+    "BMD" : "BM",
+    "BND" : "BN",
+    "BOB" : "BO",
+    "BRL" : "BR",
+    "BSD" : "BS",
+    "NOK" : "BV",
+    "BWP" : "BW",
+    "BYR" : "BY",
+    "BZD" : "BZ",
+    "CAD" : "CA",
+    "CDF" : "CD",
+    "XAF" : "CF",
+    "CHF" : "CH",
+    "CLP" : "CL",
+    "CNY" : "CN",
+    "COP" : "CO",
+    "CRC" : "CR",
+    "CUP" : "CU",
+    "CVE" : "CV",
+    "CYP" : "CY",
+    "CZK" : "CZ",
+    "DJF" : "DJ",
+    "DKK" : "DK",
+    "DOP" : "DO",
+    "DZD" : "DZ",
+    "ECS" : "EC",
+    "EEK" : "EE",
+    "EGP" : "EG",
+    "ETB" : "ET",
+    "EUR" : "FR",
+    "FJD" : "FJ",
+    "FKP" : "FK",
+    "GBP" : "GB",
+    "GEL" : "GE",
+    "GGP" : "GG",
+    "GHS" : "GH",
+    "GIP" : "GI",
+    "GMD" : "GM",
+    "GNF" : "GN",
+    "GTQ" : "GT",
+    "GYD" : "GY",
+    "HKD" : "HK",
+    "HNL" : "HN",
+    "HRK" : "HR",
+    "HTG" : "HT",
+    "HUF" : "HU",
+    "IDR" : "ID",
+    "ILS" : "IL",
+    "INR" : "IN",
+    "IQD" : "IQ",
+    "IRR" : "IR",
+    "ISK" : "IS",
+    "JMD" : "JM",
+    "JOD" : "JO",
+    "JPY" : "JP",
+    "KES" : "KE",
+    "KGS" : "KG",
+    "KHR" : "KH",
+    "KMF" : "KM",
+    "KPW" : "KP",
+    "KRW" : "KR",
+    "KWD" : "KW",
+    "KYD" : "KY",
+    "KZT" : "KZ",
+    "LAK" : "LA",
+    "LBP" : "LB",
+    "LKR" : "LK",
+    "LRD" : "LR",
+    "LSL" : "LS",
+    "LTL" : "LT",
+    "LVL" : "LV",
+    "LYD" : "LY",
+    "MAD" : "MA",
+    "MDL" : "MD",
+    "MGA" : "MG",
+    "MKD" : "MK",
+    "MMK" : "MM",
+    "MNT" : "MN",
+    "MOP" : "MO",
+    "MRO" : "MR",
+    "MTL" : "MT",
+    "MUR" : "MU",
+    "MVR" : "MV",
+    "MWK" : "MW",
+    "MXN" : "MX",
+    "MYR" : "MY",
+    "MZN" : "MZ",
+    "NAD" : "NA",
+    "XPF" : "NC",
+    "NGN" : "NG",
+    "NIO" : "NI",
+    "NPR" : "NP",
+    "NZD" : "NZ",
+    "OMR" : "OM",
+    "PAB" : "PA",
+    "PEN" : "PE",
+    "PGK" : "PG",
+    "PHP" : "PH",
+    "PKR" : "PK",
+    "PLN" : "PL",
+    "PYG" : "PY",
+    "QAR" : "QA",
+    "RON" : "RO",
+    "RSD" : "RS",
+    "RUB" : "RU",
+    "RWF" : "RW",
+    "SAR" : "SA",
+    "SBD" : "SB",
+    "SCR" : "SC",
+    "SDG" : "SD",
+    "SEK" : "SE",
+    "SGD" : "SG",
+    "SKK" : "SK",
+    "SLL" : "SL",
+    "SOS" : "SO",
+    "SRD" : "SR",
+    "STD" : "ST",
+    "SVC" : "SV",
+    "SYP" : "SY",
+    "SZL" : "SZ",
+    "THB" : "TH",
+    "TJS" : "TJ",
+    "TMT" : "TM",
+    "TND" : "TN",
+    "TOP" : "TO",
+    "TRY" : "TR",
+    "TTD" : "TT",
+    "TWD" : "TW",
+    "TZS" : "TZ",
+    "UAH" : "UA",
+    "UGX" : "UG",
+    "USD" : "US",
+    "UYU" : "UY",
+    "UZS" : "UZ",
+    "VEF" : "VE",
+    "VND" : "VN",
+    "VUV" : "VU",
+    "YER" : "YE",
+    "ZAR" : "ZA",
+    "ZMK" : "ZM",
+    "ZWD" : "ZW"
+}
+</script>
+
+  <!-- For Conversion -->
+<script>
+const dropList = document.querySelectorAll(".formB select"),
+fromCurrency = document.querySelector(".from select"),
+toCurrency = document.querySelector(".to select"),
+getButton = document.querySelector(".formB button");
+
+for (let i = 0; i < dropList.length; i++) {
+    for(let currency_code in country_list){
+        let selected = i == 0 ? currency_code == "USD" ? "selected" : "" : currency_code == "INR" ? "selected" : "";
+        let optionTag = `<option value="${currency_code}" ${selected}>${currency_code}</option>`;
+        dropList[i].insertAdjacentHTML("beforeend", optionTag);
+    }
+    dropList[i].addEventListener("change", e =>{
+        loadFlag(e.target);
+    });
+}
+
+function loadFlag(element){
+    for(let code in country_list){
+        if(code == element.value){
+            let imgTag = element.parentElement.querySelector("img");
+            imgTag.src = `https://flagcdn.com/48x36/${country_list[code].toLowerCase()}.png`;
+        }
+    }
+}
+
+window.addEventListener("load", ()=>{
+    getExchangeRate();
+});
+
+getButton.addEventListener("click", e =>{
+    e.preventDefault();
+    getExchangeRate();
+});
+
+const exchangeIcon = document.querySelector(".formB .icon");
+exchangeIcon.addEventListener("click", ()=>{
+    let tempCode = fromCurrency.value;
+    fromCurrency.value = toCurrency.value;
+    toCurrency.value = tempCode;
+    loadFlag(fromCurrency);
+    loadFlag(toCurrency);
+    getExchangeRate();
+})
+
+function getExchangeRate(){
+    const amount = document.querySelector(".formB .inputA");
+    const exchangeRateTxt = document.querySelector(".formB .exchange-rate");
+    let amountVal = amount.value;
+    if(amountVal == "" || amountVal == "0"){
+        amount.value = "1";
+        amountVal = 1;
+    }
+    exchangeRateTxt.innerText = "Getting exchange rate...";
+    let url = `https://v6.exchangerate-api.com/v6/7308932b7dbed25b653ad0ad/latest/${fromCurrency.value}`;
+    fetch(url).then(response => response.json()).then(result =>{
+        let exchangeRate = result.conversion_rates[toCurrency.value];
+        let totalExRate = (amountVal * exchangeRate).toFixed(2);
+        exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExRate} ${toCurrency.value}`;
+    }).catch(() =>{
+        exchangeRateTxt.innerText = "Something went wrong";
+    });
+}
+</script>
+
+
+</body>
+</html>

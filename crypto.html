@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Cryptocurrency API exchange</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <link rel="icon" href="pic2.png" sizes="any" type="image/svg+xml">
+  <meta name="theme-color" content="#000">
+  <meta name="description" content="See the live Bitcoin price. Convert amounts to or from USD and other currencies with this simple Bitcoin calculator. ">
+  <meta name="keywords" content="Free Bitcoin Converter,Bitcoin Currency Converter , Accurate Bitcoin Currency Converter, Best Bitcoin Currency Converter,Cryptocurrency Converter, Simple Cryptocurrency Converter, Accurate Cryptocurrency Converter">
+  <meta name="author" content="The Codezine">
+ 
+<!-- Bootstrap CSS --> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" /> <!--Bootstrap JS --> 
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> <!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/996973c893.js" crossorigin="anonymous" ></script>
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+   
+<link rel="icon" href="icon.png">
+  
+<style>    
+    html, body {
+       margin: 0;
+       padding: 0;
+   }
+   
+   body {
+       height: 100vh;
+       padding-top: 18vh;
+       box-sizing: border-box;
+     /*  display: flex;*/
+       background: #ecf0f3;
+       justify-content: center;
+       font-size: 16px;
+     /*  align-items: flex-start;*/
+   }
+   
+.head{
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 40px;
+    color: blue;
+    text-align: center;
+}
+   .conta {
+       text-align: center;
+       cursor: pointer;
+   }
+   
+   .conta:first-child {
+       width: 300px;
+   }
+   
+   
+   h1 {
+       margin: 0;
+       width: 300px;
+       font-weight: 400;
+       transition: 100ms;
+       color: rgb(253, 166, 4);
+   }
+   
+   h1:hover {
+       color: rgb(243, 39, 39);
+   }
+   .hr{
+      height: 40px;
+       width: 2px;
+       background-color: red; 
+   }
+   
+   ul {
+       list-style: none;
+       width: 100px;
+       padding: 0;
+       margin: 5px auto 0 auto;
+       border-radius: 5px;
+       box-shadow: 0 5px 28px -10px rgba(20,20,20,0.8);
+       overflow: hidden;
+       max-height: 0;
+       color: cornflowerblue;
+       transition: 220ms ease-in-out;
+   }
+   
+   .expand {
+       max-height: 300px;
+   }
+   
+   li {
+       padding: 5px;
+       border-bottom: 1px solid rgb(34, 33, 33);
+       transition: background 100ms;
+   }
+   
+   li:first-child {
+       border-top: 4px solid #e84a4a;
+   }
+   
+   li:last-child {
+       border: none;
+   }
+   
+   li:hover {
+       background-color: rgb(36, 240, 36);
+   }
+   .border-light {
+       border-color: cornflowerblue!important;
+   }
+   .border {
+       border: 2px solid rgb(137, 137, 224)!important;
+       border-radius: 6px;
+   }
+   .foot{
+    font-size: 16px;
+    font-weight: 600;
+}
+</style>
+
+</head>
+<body>
+<center>
+<div class="conta border border-light"> 
+<div class="head">Crypto Exchange</div><br><br>
+<div class="conta">
+  <h1 id="from-basis"></h1>
+     <ul id="from-menu">
+         <li class="from-currency">BTC</li>
+         <li class="from-currency">BCH</li>
+         <li class="from-currency">EOS</li>
+         <li class="from-currency">ETH</li>
+         <li class="from-currency">DASH</li>
+         <li class="from-currency">LTC</li>
+         <li class="from-currency">XRP</li>
+         <li class="from-currency">ZEC</li>
+         <li class="from-currency">ETC</li>
+     </ul>
+</div>
+<br><br>
+
+<div class="conta">
+    <h1 id="to-currency-price"></h1>
+    <ul id="to-menu">
+        <li class="to-currency">USD</li>
+        <li class="to-currency">EUR</li>
+        <li class="to-currency">GBP</li>
+        <li class="to-currency">BTC</li>
+        <li class="to-currency">ETH</li>
+    </ul>  
+  </div>
+</div>
+
+<br><br>
+<p>Click on the <b>BTC</b> or <b>USD</b> to fetch details on live api exchange...</p>
+
+<br><br><br>
+<p class="foot">Copyright © 2022 | MIT License | Nemophism Calci | All Rights Reserved | Developed and Managed by:- Asthreeta Schaft</p>
+   </center>
+<!-- partial -->
+  <script>
+      var outside = document.getElementById("body-container");
+var toPrice = document.getElementById("to-currency-price");
+var fromBasis = document.getElementById("from-basis");
+var toMenu = document.getElementById("to-menu");
+var fromMenu = document.getElementById("from-menu");
+var toSelect = document.getElementsByClassName("to-currency");
+var fromSelect = document.getElementsByClassName("from-currency");
+
+var toCurrency = "USD";
+var fromCurrency = "BTC";
+
+var retrievePrice = function() {
+    var XHR = new XMLHttpRequest();
+    
+    XHR.onreadystatechange = function(){
+      if(XHR.readyState == 4 && XHR.status == 200) {
+        var val = JSON.parse(XHR.responseText)[fromCurrency][toCurrency];
+        var price = val.toLocaleString('en');
+        toPrice.textContent = price + " " + toCurrency;
+        fromBasis.textContent = fromCurrency;
+      }
+    }
+    //Used api from cryptocompare
+    XHR.open("GET","https://min-api.cryptocompare.com/data/pricemulti?fsyms=" + fromCurrency + "&tsyms=" + toCurrency);
+    XHR.send();
+}
+
+for(var i = 0; i < toSelect.length; i++) {
+    toSelect[i].addEventListener("click", function() {
+        toMenu.classList.remove("expand");
+        toCurrency = this.textContent;
+        retrievePrice();
+    });
+}
+
+for(var i = 0; i < fromSelect.length; i++) {
+    fromSelect[i].addEventListener("click", function() {
+        fromMenu.classList.remove("expand");
+        fromCurrency = this.textContent;
+        retrievePrice();
+    });
+}
+
+toPrice.addEventListener("click", function() {
+    if(toMenu.classList.contains("expand")) {
+        toMenu.classList.remove("expand");
+    } else {
+        toMenu.classList.add("expand");
+    }
+});
+
+fromBasis.addEventListener("click", function() {
+    if(fromMenu.classList.contains("expand")) {
+        fromMenu.classList.remove("expand");
+    } else {
+        fromMenu.classList.add("expand");
+    }
+});
+
+//Execute
+setInterval(function() {
+    retrievePrice();
+}, 10000);
+
+retrievePrice();
+  </script>
+
+</body>
+</html>

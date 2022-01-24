@@ -1,0 +1,339 @@
+body{
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    background: #ecf0f3;
+    overflow-x: hidden;
+}
+
+.container{
+    width: 50%;
+    height: 50vh;
+    padding-top: 150px;
+    border-radius: 8px;
+    box-shadow: 12px 12px 20px #cbced1, -12px -12px -20px #ffffff;
+}
+
+.container p{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.display #screen{
+    width: 97%;
+    height: 70px;
+    font-size: 35px;
+    outline: none;
+    border: none;
+    text-align: right;
+    padding-right: 0.5em;
+    background: #ecf0f3;
+    border-radius: 6px;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #ffffff;
+}
+
+.btns{
+    width: 100%;
+    margin-top: 1.7em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btns .row button{
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    margin: 5px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 8px #00000020, -5px -5px 8px #ffffff;
+    transition: .1s;
+}
+
+.btns .row button:hover{
+    box-shadow: inset 5px 5px 8px rgba(16, 16, 16, .1), inset -5px -5px 8px #fff;
+    background: #fff;
+}
+
+#eval{
+    background: #33ccff;
+    color: #fff;
+    box-shadow: inset 5px 5px 8px #66d9ff, inset -5px -5px 8px #00ace6;
+}
+
+#eval:hover{
+    box-shadow: inset 5px 5px 8px #00ace6, inset -5px -5px 8px #00ace6;
+}
+
+#ce{
+    background: #ff3399;
+    color: #fff;
+}
+
+#ce:hover{
+    box-shadow: inset 5px 5px 8px #e60073, inset -5px -5px 8px #ff3399;
+}
+
+#ac{
+    background: #33cc33;
+    color: #fff;
+}
+
+#ac:hover{
+    box-shadow: inset 5px 5px 8px #23b82e, inset -5px -5px 8px #33cc33;
+}
+
+.formA input{
+    width: 200px;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200px;
+    padding: 10px 0;
+    transition: border 0.5s;
+    background: #ccc;
+}
+
+.formA option{
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: 200px;
+    padding: 20px 0;
+    transition: border 0.5s;
+}
+
+.formA select{
+    width: 100px;
+    text-align: center;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    padding: 10px 0;
+    transition: border 0.5s;
+    font-weight: 600;
+}
+
+.formA span{
+    font-size: 25px;
+}
+
+.formA{
+    margin-top: 50px;
+}
+
+.head{
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 40px;
+    color: blue;
+    text-align: center;
+}
+
+label{
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.formA #convert{
+    background: #33cc33;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: none;
+}
+
+.formA #convert:hover{
+    box-shadow: inset 5px 5px 8px #23b82e, inset -5px -5px 8px #33cc33;
+}
+
+.formA #reset{
+    background: #33ccff;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 6px;
+    border: none;
+}
+
+.formA #reset:hover{
+    box-shadow: inset 5px 5px 8px #00ace6, inset -5px -5px 8px #00ace6;
+}
+
+/* Currency Converter */
+.wrapper{
+    width: 370px;
+    padding: 30px;
+    border-radius: 7px;
+    background: #fff;
+}
+
+.wrapper .formB{
+    margin: 40px 0 20px 0;
+}
+
+.wrapper .formB :where(input, select, button){
+    width: 100%;
+    outline: none;
+    border: none;
+}
+
+.wrapper .formB label{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.wrapper .formB .inputA{
+    height: 50px;
+    font-size: 17px;
+    border: 1px solid #000;
+}
+
+.wrapper .formB .inputA:focus{
+    padding: 0 14px;
+    border: 2px solid #675AFE;
+}
+
+.wrapper .formB .drop-list{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wrapper .drop-list .select-box{
+    display: flex;
+    width: 115px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #999;
+}
+
+.wrapper .select-box select{
+    width: auto;
+    font-size: 16px;
+    margin: 0 -5px 0 5px;
+}
+
+.wrapper .select-box img{
+    width: 25px;
+}
+
+.wrapper .formB .exchange-rate{
+    font-size: 17px;
+    margin: 20px 0 30px;
+}
+
+.wrapper button{
+    height: 52px;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    background: #675AFE;
+}
+
+.wrapper .select-box select::-webkit-scrollbar{
+    width: 8px;
+}
+
+.wrapper .select-box select::-webkit-scrollbar-track{
+    background: #fff;
+}
+
+.wrapper .select-box select::-webkit-scrollbar-thumb{
+    background: #888;
+    border-radius: 8px;
+    border-right: 2px solid #fff;
+}
+
+
+/* crypto */
+#ch{
+    background: #33ccff;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    box-shadow: inset 5px 5px 8px #66d9ff, inset -5px -5px 8px #00ace6;
+}
+
+#ch:hover{
+    box-shadow: inset 5px 5px 8px #00ace6, inset -5px -5px 8px #00ace6;
+}
+
+#ch a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* responsive for big screen */
+@media (max-width: 1024px){
+    .container {
+        width: 80%;
+        height: 60vh;
+    }
+    .display #screen {
+        width: 70%;
+        font-size: 25px;
+    } 
+    .wrapper {
+        width: 300px;
+        padding: 25px;
+    }
+}
+
+/* responsive for small screen */
+@media (max-width: 720px){
+    .container {
+       width: 90%;
+       height: 50vh;
+       padding-top: 70px;
+   }
+   .display #screen {
+       width: 85%;
+       font-size: 18px;
+   }
+   .formA input {
+       width: 150px;
+       font-size: 14px;
+       padding: 8px 0;
+   }
+   label {
+      font-size: 16px;
+      font-weight: 600;
+   }
+   table {
+    width: 90%;
+    border-spacing: 1px;
+   }
+   .wrapper {
+    width: 250px;
+    padding: 20px;
+   }
+   .wrapper .formB .inputA {
+    height: 45px;
+    width: 90%;
+    font-size: 15px;
+   }
+   .wrapper .formB .drop-list {
+    margin-top: 15px;
+   }
+   .wrapper button {
+    height: 48px;
+    font-size: 16px;
+   }
+   .container p{
+       font-size: 16px;
+   }
+}
